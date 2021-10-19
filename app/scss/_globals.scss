@@ -1,0 +1,66 @@
+html {
+    font-size: 100%; //for view size responsivnes
+    box-sizing: border-box; //it includes the padding into element size
+}
+
+*, *::before, *::after {
+    box-sizing: inherit;    //inherit the box  sizing to all elements
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Public Sans', sans-serif;
+    font-size: $font-med;
+    font-weight: 300;
+    color: $grayishBlue;
+    line-height: 1.3;
+}
+
+a, a:visited, a:hover {
+    text-decoration: none;
+    color: $grayishBlue;
+}
+
+//Flexbox styles
+.flex {
+    display: flex;
+
+    //adding some custom properties for the flex
+    &-jc-sb {
+        justify-content: space-between;
+    }
+
+    &-jc-c {
+        justify-content: center;
+    }
+
+    &-ac-c {
+        align-items: center;
+    }
+
+}
+
+//Button styles
+button, .button {
+    padding: 0.875rem 2.185rem;
+    background: linear-gradient(to right, $limeGreen, $brightCyan);
+    border: 0;
+    border-radius: 50px;
+    cursor: pointer;
+    color: $white;
+    font-weight: 700;
+}
+
+//Visibility of elements styles
+.hide-for-mobile { //tablets are inclueded
+    @include breakpoint-down(medium){
+        display: none;
+    }
+}
+
+.hide-for-desktop {
+    @include breakpoint-up(large){
+        display: none;
+    }
+}

@@ -1,0 +1,99 @@
+.header {   // "&" always gives the parent class or element
+
+    &.open{ // the open class for the hamburger button when clicked
+        
+        .header__menu{
+            >span:first-child{  //direct childs of the class element
+                transform: rotate(45deg);
+            }
+            >span:nth-child(2){
+                opacity: 0;
+            }
+            >span:last-child{
+                transform: rotate(-45deg);
+            }
+        }
+    }
+
+    .overlay {
+        visibility: hidden; //visibility can be animated, display does not
+        position: fixed; //cause need to set the viewport for the right place to be
+        top: 3.75rem;
+        right: 0px;
+        left: 0px;
+        bottom: 0px;
+        background-image: linear-gradient($darkBlue, transparent);
+    }
+
+    nav{
+        padding: 1.0625rem 1.5rem;
+    }
+
+    &__logo {
+        img {
+            width: 8.8125rem;
+            height: 1.375rem;
+        }
+    }
+
+    &__menu {   //this is for the mobile menu
+
+        >span { //direct child selector
+            display: block;
+            width: 26px;
+            height: 2px;
+            background-color: $darkBlue;
+            transition: all 200ms ease-in-out; //the animation for the rotation
+            transform-origin: 3px 1px;  //setting the origin of rotation
+
+            &:not(:last-child){
+                margin-bottom: 5px;
+            }
+        }
+
+        
+    }
+
+    &__links {  //desktop view menu
+        a {
+            position: relative;
+            font-size: $font-small;
+            transition: color 200ms ease-in-out; //for transition of color some transition animation
+
+            &:not(:last-child){
+                margin-right: 32px; //if not the last child, the margin is 32px right
+            }
+
+            &::before { // sets always before the header_links element
+                content: "";
+                display: block;
+                position: absolute;
+                height: 5px;
+                left: 0;
+                right: 0;
+                bottom: -30px;
+                background: linear-gradient(to right, $limeGreen, $brightCyan);
+                opacity: 0;
+                transition: opacity 200ms ease-in-out; //opacity animation
+            }
+
+            &:hover { //on hover waht happens
+                color: $darkBlue;
+
+                &::before {
+                    opacity: 1;
+                }
+            }
+        }
+    }
+
+    &__cta { //header__cta class for the button with transition of opacity on hover
+        font-size: $font-small;
+        color: $white;
+        transition: opacity 200ms ease-in-out;
+
+        &:hover {
+            opacity: 0.75;
+        }
+    }
+}

@@ -1,0 +1,39 @@
+// all the keyframe animations goes here
+
+@keyframes fadein {
+    from {
+        visibility: hidden;
+        opacity: 0;
+    }
+    1% {
+        visibility: visible;
+        opacity: 0;
+    }
+    to {
+        visibility: visible;
+        opacity: 1;
+    }
+}
+
+.fadein {
+    animation: fadein 300ms ease-in-out forwards;
+}
+
+@keyframes fadeout {
+    from {
+        visibility: visible;
+        opacity: 1;
+    }
+    99% {
+        visibility: visible;
+        opacity: 0;
+    }
+    to {
+        visibility: hidden;
+        opacity: 0;
+    }
+}
+
+.fadeout {
+    animation: fadeout 300ms ease-in-out forwards;
+}
